@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Home/Navbar'
+import axios from 'axios';
 
 
 function AllFeatures() {
-    const getData =(event)=>{
-   console.log(123)
-   console.log(1234)
-     console.log(event.target.value); //دي بتجيب القيمه اللي انا بكتبها في الانبوت
-        event.preventDefault(); //دي بتوقف السابميت
+ //const [text,setText] = useState(0);
+  const [full,setFull] = useState([]);
+    const [search,setSearch] = useState(0);
 
-    }
+
+
+useEffect(()=>{
+
+axios.get('https://jsonplaceholder.typicode.com/photos')
+
+.then( (element)=>{
+  setFull(element.data);
+})
+
+
+
+} ,[]);
+
+ const getSearch = (event)=>{
+  setSearch(event.target.value);  
+}
 
   return (
     <div>
@@ -18,18 +33,49 @@ function AllFeatures() {
 <br></br>
 <br></br>
 <br></br>
-<button onClick={getData} > Click</button>
+<div className='container'>
+<div className='row'>
+<div className='col-md-10 m-auto'>
+<input className='form-control' placeholder='search whith Id' onChange={getSearch}></input>
 
-<br></br>
-<br></br>
-<br></br>
+</div>
 
-<form onSubmit={getData}>
-<input type="text" name="user" onChange={getData}></input>
+{full.map( (result)=>{
 
-<input type='submit' value="Enter"></input>
+return  search ==0 ? (
 
-</form>
+<div key={result.id} className='col-md-4 text-center mb-5'>
+  <img src={result.url}></img>
+  <h4>{result.title}</h4>
+  <h4>{result.id}</h4>
+</div>
+
+): result.id == search ?(
+<div key={result.id} className='col-md-4 text-center mb-5'>
+  <img src={result.url}></img>
+  <h4>{result.title}</h4>
+  <h4>{result.id}</h4>
+</div>
+):null
+
+} )} 
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+{/* <h4>{text}</h4>
+<button onClick={()=>{setText(text+1)}}> + </button>
+<button onClick={()=>{setText(text-1)}}>-</button>
+
+<h2>{full}</h2>
+<button onClick={()=>{setFull(full+1)}} >+</button> */}
 
 
 
