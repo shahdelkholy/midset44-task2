@@ -1,17 +1,18 @@
 import React from 'react'
 import Navbar from '../Home/Navbar'
 import Details from './Details'
+import { CartProvider } from 'react-use-cart'
 
 function AllAbout() {
   return (
-    <div>
+    <CartProvider>
         <Navbar/>
         <br/>
         <br/>
         <br/>
         <br/>
         <Details/>
-    </div>
+    </CartProvider>
   )
 }
 

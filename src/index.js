@@ -5,6 +5,9 @@ import AllAbout from "./About/AllAbout";
 import AllServices from "./Services/AllServices";    
 import AllFeatures from "./Features/AllFeatures";
 import { AllData } from "./Data/AllData";
+import AllShop from "./Shop/AllShop";
+import AllCart from "./Cart/AllCart";
+import { CartProvider } from "react-use-cart";
 
 
 const router = createBrowserRouter([
@@ -28,13 +31,26 @@ const router = createBrowserRouter([
     element: <AllFeatures/>,
   },
 
+     {
+    path: "Shop",
+    element: <AllShop/>,
+  },
+      {
+    path: "Cart",
+    element: <AllCart/>,
+  },
+
 ]);
 
 createRoot(document.getElementById("root")).render(
+
+  <CartProvider>
 <AllData>
   <RouterProvider router={router} />
 
 </AllData>
+  </CartProvider>
+
 
 );
 

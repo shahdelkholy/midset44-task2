@@ -8,6 +8,7 @@ import Task1 from './Task1';
 import Task2 from './Task2';
 import Task3 from './Task3';
 import Task4 from './Task4';
+import { CartProvider } from 'react-use-cart';
 
 
 function App() {
@@ -25,7 +26,7 @@ const person = [
 
 
   return (
-    <div>
+    <CartProvider>
       <Navbar/>
       <Header/>
       <Section1/>
@@ -43,7 +44,7 @@ const person = [
 
 
       
-    </div>
+    </CartProvider>
   );
 }
 

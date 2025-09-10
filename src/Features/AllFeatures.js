@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../Home/Navbar'
 import { apiValue } from '../Data/AllData';
+import { CartProvider } from 'react-use-cart';
 
 function AllFeatures() {
  //const [text,setText] = useState(0);
@@ -21,7 +22,7 @@ function AllFeatures() {
 }
 
   return (
-    <div>
+    <CartProvider>
       <Navbar/>
       <br></br>
       <br></br>
@@ -72,7 +73,7 @@ function AllFeatures() {
 
       <h2>{full}</h2>
       <button onClick={()=>{setFull(full+1)}} >+</button> */}
-    </div>
+    </CartProvider>
   )
 }
 

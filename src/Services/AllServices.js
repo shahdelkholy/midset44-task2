@@ -1,16 +1,17 @@
 import React from 'react'
 import Navbar from '../Home/Navbar'
 import Test from './Test'
+import { CartProvider } from 'react-use-cart'
 
 export default function AllServices() {
   return (
-    <div>
+    <CartProvider>
         <Navbar/>
         <br/>
         <br/>
         <br/>
         <br/>
         <Test/>
-    </div>
+    </CartProvider>
   )
 }

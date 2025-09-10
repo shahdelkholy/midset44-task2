@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router";
+import { useCart } from "react-use-cart";
 
 function Navbar() {
+    const{totalItems}=useCart();
+
   return (
     <div>
       {/* <!-- Navbar --> */}
@@ -29,19 +32,24 @@ function Navbar() {
                 <Link className="nav-link" to="/services">
                   Services
                 </Link>
-              </li>
-              {/* <li className="nav-item">
-                <Link className="nav-link" to="/Information">
-                  Information
-                </Link>
-              </li> */}
-
-               
+              </li>               
               <li className="nav-item">
                 <Link className="nav-link" to="features">
-                  features
+                  Features
                 </Link>
               </li>
+               <li className="nav-item">
+                <Link className="nav-link" to="/shop">
+                  Shoping
+                </Link>
+              </li> 
+                   <li className="nav-item">
+                <Link className="nav-link" to="/cart">
+                  <i class="fa-solid fa-cart-plus"></i> ({totalItems})
+                </Link>
+              </li> 
+
+
             </ul>
           </div>
         </div>
