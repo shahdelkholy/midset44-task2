@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from "./Home/Navbar";
 import Header from './Home/Header';
 import Section1 from './Home/Section1';
@@ -24,7 +24,6 @@ const person = [
 
 
 
-
   return (
     <div>
       <Navbar/>
@@ -38,7 +37,11 @@ const person = [
 
     <Task3 allData={person} />
 
+
     <Task4 allData={person} />
+
+
+
       
     </div>
   );

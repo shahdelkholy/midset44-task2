@@ -4,6 +4,7 @@ import App from "./App";
 import AllAbout from "./About/AllAbout";
 import AllServices from "./Services/AllServices";    
 import AllFeatures from "./Features/AllFeatures";
+import { AllData } from "./Data/AllData";
 
 
 const router = createBrowserRouter([
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
+<AllData>
   <RouterProvider router={router} />
+
+</AllData>
+
 );
 
 
